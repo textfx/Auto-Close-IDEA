@@ -11,7 +11,7 @@ If FileExists($iniPath) = False Then
 EndIf
 
 
-Global $countDNClose, $closeHWND,  $lastHWND = '' ; в зв'язку з не моментальним закриттям вікон, і не зовсім коректною роботою функції WinWaitClose треба роботи ще одну перевірку.
+Global $countDNClose, $closeHWND,  $lastHWND = '' ; $closeHWND потрібен в зв'язку з не моментальним закриттям вікон, і не зовсім коректною роботою функції WinWaitClose треба робити ще одну перевірку.
 
 
 ; Search in black List
@@ -32,12 +32,12 @@ While 1
    Local $activeNew = IniRead($iniPath, 'OPTIONS', 'activeNew', True) ;зробити вікно активним після відкриття
    Local $doNotClose = StringSplit(IniRead($iniPath, 'OPTIONS', 'doNotClose', "||"), "||")
 		 $countDNClose  = UBound($doNotClose);
-		 $aWindows = WinList()
+		 ;[CLASS:SunAwtFrame] - захист, щоб в браузерах не шукало, а то якщо знайде вкладку з назвою IntelliJ IDEA закриє браузер
+		 $aWindows = WinList("[CLASS:SunAwtFrame]") ;WinList("[REGEXPTITLE:(?i)-.+?\[.+\]\s+-\s+IntelliJ IDEA$]")
 
    For $i=1 To $aWindows[0][0]
 	  ; skip windows without 'IntelliJ IDEA'
 	  If StringInStr($aWindows[$i][0], $windowContains) = False Or isDoNotColose($aWindows[$i][0]) Then ContinueLoop
-
 
 	  If  String($LastHWND) <>  String($aWindows[$i][1]) And String($closeHWND) <> String($aWindows[$i][1]) Then
 		 ; There can be only one! (Connor MacLeod)
@@ -55,7 +55,7 @@ While 1
 		 ; active yes/no
 		 If $exitOld And $activeNew Then WinActivate($LastHWND)
 	  EndIf
-	Next
+   Next
 WEnd
 
 
