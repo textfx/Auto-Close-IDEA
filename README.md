@@ -1,4 +1,4 @@
-# Add option "Open project in the same window" in JetBrain ToolBox
+**Add option "Open project in the same window" in JetBrain ToolBox** <br><br>
 ![Image alt](https://github.com/textfx/Auto-Close-IDEA/blob/master/promo.webp)
 
 # Install
