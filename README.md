@@ -11,4 +11,4 @@ Add option "Open project in the same window" in JetBrain ToolBox
 
 # Warring 
 Don't open two "AutoClose IDEA.exe", it will conflict
-Don't open "AutoClose IDEA.exe" and run "AutoCloseIDEA.au3", it will conflict
+<br>Don't open "AutoClose IDEA.exe" and run "AutoCloseIDEA.au3", it will conflict
