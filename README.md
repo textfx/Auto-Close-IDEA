@@ -4,6 +4,13 @@
 # Install
   1. Open AutoCloseIDEA.exe
   2. Use JetBrain TOOLBOX
+  
+# Context Menu
+![Image alt](menu.png) \
+Whitelist is a string of window names with a separator "||" \
+**Example:** *"project1 || some-project"* \
+Both windows cannot be closed automatically +1 window that is closed automatically \
+There will always be open from 1 to 3 windows. Depends on whether the "project1" or "some-project" are  opened  or not
 
 # Developers
 1. Install "AutoIt Full Installation" https://www.autoitscript.com/site/autoit/downloads/  
